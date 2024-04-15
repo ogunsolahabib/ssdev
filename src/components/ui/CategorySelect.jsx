@@ -19,9 +19,7 @@ export default function CategorySelect() {
       displayEmpty
       label="Age"
       placeholder="Category"
-      onChange={
-        handleChange
-      }
+      onChange={handleChange }
       sx={{ width: {xs: "100%", md:"140px"} }}
     >
       <MenuItem value="">All categories</MenuItem>

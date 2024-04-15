@@ -7,11 +7,11 @@ import { Grid } from "@mui/material";
 function ProductCard({ product, onClick }) {
   return (<Grid sx={{ mt: 4, cursor: "pointer" }} item xs={12} sm={6} md={3} key={product.id}>
     <Card  sx={{ boxShadow: 2, p: 2, maxWidth: "300px", margin: "auto", zIndex :-3 }} onClick={onClick}>
-      <img
+      <Box component={"img"}
         src={product.image}
         style={{
+          width: "100%",
           height: "200px",
-          width: "200px",
           objectFit: "contain",
           display: "block",
           margin: "auto",

@@ -15,6 +15,7 @@ const Header = ({ isNavBarAtTop }) => {
       duration: theme.transitions.duration.standard,
     }),
     boxShadow: isNavBarAtTop ? "none" : theme.shadows[3],
+    padding: "0 20px",
   }));
   
  const {filters, setFilters}=useFiltersContext();
@@ -26,10 +27,10 @@ const Header = ({ isNavBarAtTop }) => {
           sx={{
             width: "100%",
             margin: "auto",
-            py: { xs: 2, sm: 4, md: 0 },
+            py: { xs: 2 },
             display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "space-between",
             alignItems: "center",
             backgroundColor:"#f5f5f5",
           }}
@@ -48,14 +49,17 @@ const Header = ({ isNavBarAtTop }) => {
             Products
           </Typography>
           <Box
-            sx={{display: "flex", flexDirection: {xs:"column", md:"row"}, gap: 2, alignItems: "baseline"}}
+            sx={{display: "flex", width: {sm:"100%", md:"auto"}, flexDirection: {xs:"column", md:"row"}, gap: 2, alignItems: "baseline"}}
           >
             <SearchField />
+            <Box sx={{width: {sm:"100%", md:"auto"}, display: "flex", gap: 2, alignItems: "baseline"}}>
+
        
           <Button variant="ghost" title="Sort" endIcon={filters.sort==='asc'?<ArrowDownward/>:<ArrowUpward />}
           onClick={()=>setFilters({...filters, sort:filters.sort==='asc'?'desc':'asc'})}
           >Sort</Button>
             <CategorySelect />
+          </Box>
           </Box>
           <ShoppingCartIcon />
 
