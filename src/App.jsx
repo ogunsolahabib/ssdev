@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import RootLayout from "./layouts/RootLayout";
 import HomePage from "./screens/HomePage";
 import {
@@ -7,6 +6,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
   const router = createBrowserRouter(
@@ -16,11 +16,13 @@ function App() {
       </Route>,
     ),
   );
+  const queryClient = new QueryClient();
+
 
   return (
-    <Box>
+    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </Box>
+    </QueryClientProvider>
   );
 }
 
